@@ -2,22 +2,22 @@ extends layouts/main.pug
 
 block content
 
-    div(class="container w-50")
+    div(class="container mt-5" style="width: 500px")
 
-        div(class="mb-4")
+        div(class="text-center")
             h2 Connexion
 
         if error
             div(class="alert alert-danger") #{error}
 
-        form(method='POST' action='/login')
+        form(action='/auth/login', method="post")
 
             div(class="form-group")
-                label(for='email') Email :
-                input#email(type='text' name='email' class="form-control" required)
+                label(for='email') Email
+                input#email(type='email' name='email' class="form-control" required)
 
             div(class="form-group")
-                label(for='password') Mot de passe :
+                label(for='password') Mot de passe
                 input#password(type='password' name='password' class="form-control" required)
                 
-            button(type='submit' class="btn btn-success mx-auto" style="width: 150px") Se connecter
+            button(type='submit' class="btn btn-primary w-100") Se connecter
