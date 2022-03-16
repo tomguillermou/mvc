@@ -1,0 +1,103 @@
+extends layouts/main.pug
+
+block content
+
+    div(class="container mt-5 w-md-75")
+
+        div(class="d-flex justify-content-center")
+            img(src="./images/logo_cpf.png" heigth="300" width="300")
+
+        div(class="text-center")
+            h2 Formulaire de demande d'accompagnement
+
+        form(action="/form", method="post" class="mt-4 mb-5")
+
+            div(class="form-group")
+                label(for='lastname') Nom
+                input#lastname(type='text' name='lastname' class="form-control" required)
+
+            div(class="form-group")
+                label(for='firstname') Prénom
+                input#firstname(type='text' name='firstname' class="form-control" required)
+
+            div(class="form-group")
+                label(for='phonenumber') Numéro de téléphone
+                input#phonenumber(type='tel' name='phonenumber' class="form-control" required)
+
+            div(class="form-group")
+                label(for='email') Email
+                input#email(type='tel' name='email' class="form-control" required)
+
+            //- Activité professionnelle
+            div(class="form-group")
+                label Avez-vous eu une activité professionnelle ces 3 dernières années ?
+                div(class="form-check")
+                    input#radioEmployed(class="form-check-input" type="radio" name="employed" value="true" checked)
+                    label(class="form-check-label" for="radioEmployed") Oui
+
+                div(class="form-check")
+                    input#radioUnemployed(class="form-check-input" type="radio" name="employed" value="false")
+                    label(class="form-check-label" for="radioUnemployed") Non
+
+            //- Secteur public/privé
+            div(class="form-group")
+                label Si oui, dans quel secteur ?
+                div(class="form-check")
+                    input#radioPrivateSector(class="form-check-input" type="radio" name="sector" value="false" checked)
+                    label(class="form-check-label" for="radioPrivateSector") Privé
+
+                div(class="form-check")
+                    input#radioPublicSector(class="form-check-input" type="radio" name="sector" value="true")
+                    label(class="form-check-label" for="radioPublicSector") Public
+
+            //- Formation
+            div(class="form-group")
+                label Avez-vous bénéficié d'une formation cette année ou l'année dernière ?
+                div(class="form-check")
+                    input#radioFormed(class="form-check-input" type="radio" name="formed" value="true" checked)
+                    label(class="form-check-label" for="radioFormed") Oui
+
+                div(class="form-check")
+                    input#radioNotFormed(class="form-check-input" type="radio" name="formed" value="false")
+                    label(class="form-check-label" for="radioNotFormed") Non
+
+            //- Connexion au CPF
+            div(class="form-group")
+                label Vous êtes-vous déjà connecté(e) à votre compte formation (<i>moncompteformation.gouv.fr</i>) ?
+                div(class="form-check")
+                    input#radioConnected(class="form-check-input" type="radio" name="connected" value="true" checked)
+                    label(class="form-check-label" for="radioConnected") Oui
+
+                div(class="form-check")
+                    input#radioNotConnected(class="form-check-input" type="radio" name="connected" value="false")
+                    label(class="form-check-label" for="radioNotConnected") Non
+            
+            //- Budget formation
+            div(class="form-group")
+                label Connaissez-vous votre budget formation ?
+                div(class="form-check")
+                    input#radioHasBudget(class="form-check-input" type="radio" name="budget" value="true" checked)
+                    label(class="form-check-label" for="radioHasBudget") Oui
+
+                div(class="form-check")
+                    input#radioNoBudget(class="form-check-input" type="radio" name="budget" value="false")
+                    label(class="form-check-label" for="radioNoBudget") Non
+
+            //- Budget formation
+            div(class="form-group")
+                label Avez-vous un compte FranceConnect ?
+                div(class="form-check")
+                    input#radioHasAccount(class="form-check-input" type="radio" name="hasAccount" value="true" checked)
+                    label(class="form-check-label" for="radioHasAccount") Oui
+
+                div(class="form-check")
+                    input#radioNoAccount(class="form-check-input" type="radio" name="hasAccount" value="false")
+                    label(class="form-check-label" for="radioNoAccount") Non
+
+            //- Accepte le transfert
+            div(class="form-check")
+                input#radioAgreeTerms(class="form-check-input" type="checkbox" name="agreedTerms" value="true" required)
+                label(class="form-check-label" for="radioAgreeTerms") Acceptez-vous le transfert de ces données à un formateur aggréé ?
+
+            div(class="mt-4 mx-auto" style="width: 200px")
+                input(type="submit", value="Valider" class="btn btn-primary w-100") 
